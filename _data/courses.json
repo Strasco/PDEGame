@@ -1,0 +1,23 @@
+[
+	{
+		"_id": "60b4e4d2b9668637457e2a4b",
+		"title": "Histologie",
+		"description": "Full stack development course, in here you will learn a lot about frontend and all that"
+	},
+	{
+		"_id": "60b4e4d2b9668637457e2a4c",
+		"title": "Biologie Celulara",
+		"description": "Full stack development course, in here you will learn a lot"
+	},
+	{
+		"_id": "60b4e4d2b9668637457e2a4d",
+		"title": "Biostatistica",
+		"description": "In this course you will learn all about the front end with HTML, CSS and JavaScript. You will master tools like Git and Webpack and also learn C# and ASP.NET with Postgres"
+	},
+	{
+		"_id": "60b4e4d2b9668637457e2a4e",
+		"title": "Anatomie",
+		"description": "In this course you will learn all about the front end with HTML, CSS and JavaScript. You will master tools like Git and Webpack and also learn C# and ASP.NET with Postgres"
+	}
+
+]
