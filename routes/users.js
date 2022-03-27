@@ -6,6 +6,7 @@ const {
 	updateUser,
 	deleteUser,
 	getInventory,
+	updateGold,
 	addToInventory
 } = require('../controllers/users');
 const User = require('../models/User');
@@ -23,6 +24,7 @@ router
 router
 	.route('/inventory/:id')
 	.get(protect, authorize('player', 'admin'), getInventory)
+	.put(protect, authorize('player', 'admin'), updateGold)
 	.post(protect, authorize('admin', 'player'), addToInventory);
 
 router

@@ -9,7 +9,7 @@ dotenv.config({ path: "./config/config.env" });
 const Course = require("./models/Course");
 // const Student = require('./models/Student');
 const Grade = require("./models/Grade");
-const User = require("./models/User");
+const User = require("./functions/src/models/User");
 
 //Connect to the db
 mongoose.connect(process.env.MONGO_URI, {

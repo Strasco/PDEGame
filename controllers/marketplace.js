@@ -31,14 +31,12 @@ exports.sellItem = asyncHandler(async (req, res, next) => {
 });
 
 exports.buyItem = asyncHandler(async (req, res, next) => {
-	console.log(req.body);
 	const item = await Marketplace.findById(req.body._id);
 	if (!item) {
 		return next(new ErrorResponse(req.params.id, 404));
 	}
 
 	var user = await User.findById(req.params.id);
-	console.log(user);
 	var found = false;
 	for (let index = 0; index < user.inventory.length; index++) {
 		if (user.inventory[index].itemName === item.itemName) {
@@ -48,14 +46,24 @@ exports.buyItem = asyncHandler(async (req, res, next) => {
 	}
 
 	if (!found) {
-		user.inventory.push({ itemName: item.itemName, quantity: req.body.itemQuantity });
+		user.inventory.push({
+			itemName: item.itemName,
+			quantity: req.body.itemQuantity,
+			itemCategory: req.body.itemCategory
+		});
 	}
 	item.itemQuantity -= req.body.itemQuantity;
 
 	await User.updateOne({ _id: req.params.id }, user);
+	await User.findOneAndUpdate(
+		{ _id: item.soldById },
+		{
+			$inc: { gold: req.body.total }
+		},
+		{ new: true }
+	);
 
 	if (item.itemQuantity <= 0) {
-		console.log(item.itemQuantity + ' here');
 		await Marketplace.deleteOne({ _id: req.body._id });
 	} else {
 		await Marketplace.updateOne({ _id: req.body._id }, item);

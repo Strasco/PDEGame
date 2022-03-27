@@ -57,6 +57,7 @@ exports.getInventory = asyncHandler(async (req, res, next) => {
 });
 
 exports.addToInventory = asyncHandler(async (req, res, next) => {
+	console.log(req.body.itemCategory + ' vlaad');
 	var user = await User.findById(req.params.id);
 	var found = false;
 
@@ -73,4 +74,20 @@ exports.addToInventory = asyncHandler(async (req, res, next) => {
 
 	await User.updateOne({ _id: req.params.id }, user);
 	res.status(200).json({ success: true, data: user });
+});
+
+exports.updateGold = asyncHandler(async (req, res, next) => {
+	var user = await User.findOneAndUpdate(
+		{ _id: req.params.id },
+		{
+			$inc: { gold: req.body.gold }
+		},
+		{ new: true }
+	);
+
+	if (!user) {
+		return next(new ErrorResponse(req.params.id, 404));
+	}
+	console.log(user);
+	res.status(200).json({ success: true, gold: user.gold });
 });

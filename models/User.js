@@ -15,6 +15,10 @@ const UserSchema = new mongoose.Schema(
 			enum: [ 'player', 'admin' ],
 			default: 'player'
 		},
+		gold: {
+			type: Number,
+			default: 0
+		},
 		password: {
 			type: String,
 			required: [ true, 'Please add a a password' ],

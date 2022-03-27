@@ -20,6 +20,10 @@ const MarketplaceSchema = new mongoose.Schema({
 	soldBy: {
 		type: String,
 		required: [ true, 'Please add sold by' ]
+	},
+	soldById: {
+		type: String,
+		required: [ true, 'Please add sold by ID' ]
 	}
 });
 

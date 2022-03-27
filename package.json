@@ -10,11 +10,13 @@
   "author": "Vlad Zaharia",
   "license": "MIT",
   "dependencies": {
+    "audit": "0.0.6",
     "bcryptjs": "^2.4.3",
     "colors": "^1.4.0",
     "cookie-parser": "^1.4.5",
     "dotenv": "^9.0.2",
     "express": "^4.17.1",
+    "fix": "0.0.6",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.12.9",
     "morgan": "^1.10.0",
