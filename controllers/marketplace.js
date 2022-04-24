@@ -49,7 +49,8 @@ exports.buyItem = asyncHandler(async (req, res, next) => {
 		user.inventory.push({
 			itemName: item.itemName,
 			quantity: req.body.itemQuantity,
-			itemCategory: req.body.itemCategory
+			itemCategory: req.body.itemCategory,
+			itemStats: req.body.itemStats
 		});
 	}
 	item.itemQuantity -= req.body.itemQuantity;

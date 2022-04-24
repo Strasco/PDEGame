@@ -17,6 +17,7 @@ connectDB();
 const users = require('./routes/users');
 const auth = require('./routes/auth');
 const marketplace = require('./routes/marketplace');
+const skills = require('./routes/skills');
 
 const app = express();
 
@@ -38,6 +39,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/api/v1/users', users);
 app.use('/api/v1/auth', auth);
 app.use('/api/v1/marketplace', marketplace);
+app.use('/api/v1/skills', skills);
 
 app.use(errorHandler);
 

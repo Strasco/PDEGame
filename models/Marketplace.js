@@ -17,6 +17,9 @@ const MarketplaceSchema = new mongoose.Schema({
 		type: Number,
 		required: [ true, 'Please add price per unit' ]
 	},
+	itemStats: {
+		type: Object
+	},
 	soldBy: {
 		type: String,
 		required: [ true, 'Please add sold by' ]
