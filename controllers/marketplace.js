@@ -36,6 +36,10 @@ exports.buyItem = asyncHandler(async (req, res, next) => {
 		return next(new ErrorResponse(req.params.id, 404));
 	}
 
+	if (item.quantity < req.body.itemQuantity) {
+		return next(new ErrorResponse(req.params.id, 404));
+	}
+
 	var user = await User.findById(req.params.id);
 	var found = false;
 	for (let index = 0; index < user.inventory.length; index++) {
